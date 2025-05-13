@@ -191,40 +191,36 @@
 <h4 id="创建-vector类"><a href="#创建-vector类" class="headerlink" title="创建 vector类"></a>创建 vector类</h4><p>（在引用头文件后加上<code>using namespace std;</code>就不用每个vector前都加<code>std::</code>啦)<br>多个相同的值：<code>std::vector&lt;数组里的数据类型&gt; 数组名字（数量，值）；</code><br>不同值：<code>std::vector&lt;数组里的数据类型&gt; 数组名字 = &#123;值，值，值，值&#125;;</code>  </p>
 <h4 id="对数组进行操作"><a href="#对数组进行操作" class="headerlink" title="对数组进行操作"></a>对数组进行操作</h4><ul>
 <li><h5 id="访问元素"><a href="#访问元素" class="headerlink" title="访问元素"></a>访问元素</h5><ul>
-<li>通过下标操作符 <code>[ ]</code> ：<code>数组名[索引]</code><br>例如，<code>vec[0]</code> 可以访问 vector 中第一个元素。需要注意的是，如果下标越界，不会抛出异常，可能会导致未定义行为。  </li>
-<li>通过 <code>at()</code> 函数 ：<code>数组名.at(索引)</code><br>与下标操作符类似，但 <code>at()</code> 会对下标进行边界检查，如果越界会抛出<code>std::out_of_range</code>异常。<br>例如，<code>vec.at(0)</code> 安全地访问第一个元素。</li>
+<li><strong>通过下标操作符<code>[ ]</code></strong>：<code>数组名[索引]</code><br>例如，<code>vec[0]</code> 可以访问 vector 中第一个元素。需要注意的是，如果下标越界，不会抛出异常，可能会导致未定义行为。  </li>
+<li><strong>通过 <code>at()</code> 函数</strong> ：<code>数组名.at(索引)</code><br>与下标操作符类似，但 <code>at()</code> 会对下标进行边界检查，如果越界会抛出<code>std::out_of_range</code>异常。<br>例如，<code>vec.at(0)</code> 安全地访问第一个元素。</li>
 </ul>
 </li>
-<li><p><strong>添加元素</strong>  </p>
-<ul>
-<li>插入单个元素：  <ul>
-<li><code>push_back</code> ：在 vector 尾部添加一个元素。<br>格式：<code>数组名字.push_back(值);</code><br>例如，<code>vec.push_back(20)</code>；向 vector 添加元素 20。当元素数量超过当前容量时，vector 会自动分配更大的内存空间，并将原元素和新元素拷贝到新的内存位置。  </li>
-<li><code>insert</code>：可以插入元素到 vector 的指定位置。<br>格式：<code>数组名字.insert(索引的位置, 值);</code><br>例如，<code>vec.insert(vec.begin() + 1, 30)</code>；在 vector 的索引位置 1 处插入元素 30。插入操作可能会导致内存重新分配，并且在插入位置之后的元素会被向后移动。<br>（ps: 索引的位置：<code>vec.begin()</code> 是 vector 类的一个成员函数，它的作用是返回一个迭代器，指向向量的第一个元素。用通俗的话说，<code>begin()</code> 返回一个“指针”，指向向量的起始位置。<code>vec.end()</code> 是 <code>std::vector</code> 类的另一个成员函数，它的作用是返回一个迭代器，指向向量末尾的“下一个”位置。注意，<code>end()</code> 返回的迭代器并不指向一个有效的元素，而是指向“超出末尾”的位置。这个位置用于表示遍历结束的条件。索引位置本质是个迭代器，通过这个迭代器我们才能访问这个类中的元素。）</li>
+<li><h5 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h5><ul>
+<li><h6 id="插入单个元素："><a href="#插入单个元素：" class="headerlink" title="插入单个元素："></a>插入单个元素：</h6><ul>
+<li><strong><code>push_back</code></strong>：在 vector 尾部添加一个元素。<br>格式：<code>数组名字.push_back(值);</code><br>例如，<code>vec.push_back(20)</code>；向 vector 添加元素 20。当元素数量超过当前容量时，vector 会自动分配更大的内存空间，并将原元素和新元素拷贝到新的内存位置。  </li>
+<li><strong><code>insert</code></strong>：可以插入元素到 vector 的指定位置。<br>格式：<code>数组名字.insert(索引的位置, 值);</code><br>例如，<code>vec.insert(vec.begin() + 1, 30)</code>；在 vector 的索引位置 1 处插入元素 30。插入操作可能会导致内存重新分配，并且在插入位置之后的元素会被向后移动。<br>（ps: 索引的位置：<code>vec.begin()</code> 是 vector 类的一个成员函数，它的作用是返回一个迭代器，指向向量的第一个元素。用通俗的话说，<code>begin()</code> 返回一个“指针”，指向向量的起始位置。<code>vec.end()</code> 是 <code>std::vector</code> 类的另一个成员函数，它的作用是返回一个迭代器，指向向量末尾的“下一个”位置。注意，<code>end()</code> 返回的迭代器并不指向一个有效的元素，而是指向“超出末尾”的位置。这个位置用于表示遍历结束的条件。索引位置本质是个迭代器，通过这个迭代器我们才能访问这个类中的元素。）</li>
 </ul>
 </li>
-<li>插入多个元素：  <ul>
-<li>多次引用<code>push_back</code>；  </li>
-<li><code>Insert</code>：<br>格式：<code>数组名字.insert(索引的位置, &#123;值，值，值，值&#125;)</code></li>
+<li><h6 id="插入多个元素："><a href="#插入多个元素：" class="headerlink" title="插入多个元素："></a>插入多个元素：</h6><ul>
+<li><strong>多次引用<code>push_back</code></strong>；  </li>
+<li><strong><code>Insert</code></strong>：<br>格式：<code>数组名字.insert(索引的位置, &#123;值，值，值，值&#125;)</code></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><strong>删除元素</strong>  </p>
-<ul>
-<li><code>pop_back()</code> ：删除 vector 尾部的元素。<br>例如，<code>vec.pop_back()</code>；删除最后一个元素。  </li>
-<li><code>erase()</code> ：可以删除指定位置的元素或者一个范围内的元素。<br>例如，<code>vec.erase(vec.begin() + 2)</code>；删除索引位置 2 的元素；<code>vec.erase(vec.begin() + 1, vec.begin() + 3)</code>；删除索引位置 1 到 2 的元素。删除操作后，后面的元素会向前移动。<br>（ps:之后的格式基本都是类名.成员函数名（））</li>
+<li><h6 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h6><ul>
+<li><strong><code>pop_back()</code></strong> ：删除 vector 尾部的元素。<br>例如，<code>vec.pop_back()</code>；删除最后一个元素。  </li>
+<li><strong><code>erase()</code></strong> ：可以删除指定位置的元素或者一个范围内的元素。<br>例如，<code>vec.erase(vec.begin() + 2)</code>；删除索引位置 2 的元素；<code>vec.erase(vec.begin() + 1, vec.begin() + 3)</code>；删除索引位置 1 到 2 的元素。删除操作后，后面的元素会向前移动。<br>（ps:之后的格式基本都是类名.成员函数名（））</li>
 </ul>
 </li>
-<li><p><strong>获取 vector 的大小和容量</strong>  </p>
-<ul>
-<li><code>size()</code> ：返回 vector 中元素的个数。<br>例如，<code>vec.size()</code> 返回当前 vector 包含的元素数量。  </li>
-<li><code>capacity()</code> ：返回 vector 当前分配的内存量（以元素个数为单位），这个容量可能大于等于 size。<br>例如，<code>vec.capacity()</code> 返回 vector 的容量。  </li>
-<li><code>empty()</code> ：判断 vector 是否为空。如果为空返回 true，否则返回 false。<br><code>if (vec.empty()) &#123; &#125;</code>是一个常见的用法。</li>
+<li><h6 id="获取-vector-的大小和容量"><a href="#获取-vector-的大小和容量" class="headerlink" title="获取 vector 的大小和容量"></a>获取 vector 的大小和容量</h6><ul>
+<li><strong><code>size()</code></strong> ：返回 vector 中元素的个数。<br>例如，<code>vec.size()</code> 返回当前 vector 包含的元素数量。  </li>
+<li><strong><code>capacity()</code></strong> ：返回 vector 当前分配的内存量（以元素个数为单位），这个容量可能大于等于 size。<br>例如，<code>vec.capacity()</code> 返回 vector 的容量。  </li>
+<li><strong><code>empty()</code></strong> ：判断 vector 是否为空。如果为空返回 true，否则返回 false。<br><code>if (vec.empty()) &#123; &#125;</code>是一个常见的用法。</li>
 </ul>
 </li>
-<li><p><strong>遍历 vector</strong>  </p>
-<ul>
-<li>使用 for 循环和下标 ：    <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">for</span>(<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; vec.<span class="built_in">size</span>(); ++i) &#123;  </span><br><span class="line">     std::cout &lt;&lt; vec[i] &lt;&lt; <span class="string">&quot; &quot;</span>;  </span><br><span class="line"> &#125;  </span><br><span class="line"> ```  </span><br><span class="line"> 解释：`<span class="type">size_t</span>`是无符号整型变量的关键字，之所以用`<span class="type">size_t</span>`一方面是因为`i`本身是大于等于<span class="number">0</span>的其二是因为`<span class="type">size_t</span>`的范围比`<span class="type">int</span>`表示的范围更大，会更安全，不会溢出。</span><br><span class="line"> vec.<span class="built_in">size</span>()就是使用vector的成员函数size函数返回这个数组里的元素个数。</span><br><span class="line">- 使用迭代器 ：</span><br><span class="line">    ```<span class="function">cpp </span></span><br><span class="line"><span class="function">    <span class="title">for</span><span class="params">(std::vector&lt;<span class="type">int</span>&gt;::iterator it = vec.begin(); it != vec.end(); ++it)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;&#125;</span><br></pre></td></tr></table></figure>
+<li><h6 id="遍历-vector"><a href="#遍历-vector" class="headerlink" title="遍历 vector"></a>遍历 vector</h6><ul>
+<li><strong>使用 for 循环和下标</strong> ：    <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">for</span>(<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; vec.<span class="built_in">size</span>(); ++i) &#123;  </span><br><span class="line">     std::cout &lt;&lt; vec[i] &lt;&lt; <span class="string">&quot; &quot;</span>;  </span><br><span class="line"> &#125;  </span><br><span class="line"> ```  </span><br><span class="line"> 解释：`<span class="type">size_t</span>`是无符号整型变量的关键字，之所以用`<span class="type">size_t</span>`一方面是因为`i`本身是大于等于<span class="number">0</span>的其二是因为`<span class="type">size_t</span>`的范围比`<span class="type">int</span>`表示的范围更大，会更安全，不会溢出。</span><br><span class="line"> vec.<span class="built_in">size</span>()就是使用vector的成员函数size函数返回这个数组里的元素个数。</span><br><span class="line">- **使用迭代器** ：</span><br><span class="line">    ```<span class="function">cpp </span></span><br><span class="line"><span class="function">    <span class="title">for</span><span class="params">(std::vector&lt;<span class="type">int</span>&gt;::iterator it = vec.begin(); it != vec.end(); ++it)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;&#125;</span><br></pre></td></tr></table></figure>
 
  解释：std::vector<int>::iterator是指出it的类型是一个迭代器，固定搭配。</li>
 </ul>
@@ -232,7 +228,7 @@
 </ul>
 <p>std::vector<int>::iterator it &#x3D; vec.begin()在给it进行初始化，给它赋上索引为0，即第一个元素的迭代器，end()返回指向 vector 超出末尾元素的迭代器。*it解引用出它对应的内容，迭代器可以像指针一样进行递增和解引用操作。<br>或者<br>      <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vec.<span class="built_in">begin</span>(); it != vec.<span class="built_in">end</span>(); ++it) &#123;</span><br><span class="line">std::cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;&#125;</span><br></pre></td></tr></table></figure><br>      解释：为了简便，std::vector<int>::iterator这个类型表示可以直接用auto替代，自动识别它的迭代器身份。</p>
 <ul>
-<li>使用范围 for 循环（C++11 及以后） ： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span>&amp; elem : vec) &#123;</span><br><span class="line"> std::cout &lt;&lt; elem &lt;&lt; <span class="string">&quot; &quot;</span>;&#125;</span><br></pre></td></tr></table></figure>
+<li><strong>使用范围 for 循环（C++11 及以后）</strong> ： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span>&amp; elem : vec) &#123;</span><br><span class="line"> std::cout &lt;&lt; elem &lt;&lt; <span class="string">&quot; &quot;</span>;&#125;</span><br></pre></td></tr></table></figure>
 解释：auto：让编译器自动推断 elem 的类型。&amp;：声明 elem 是一个引用变量。elem：引用容器中当前迭代的元素。这种方式简洁高效，自动遍历 vector 中的每个元素。</li>
 </ul>
 <hr>
