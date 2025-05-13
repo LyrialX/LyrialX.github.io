@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    我的博客
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="博客,技术,生活" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">开始阅读</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">首页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">归档</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="archive-link" href="/archives/2025/05/">五月 2025</a></li><li><a class="archive-link" href="/archives/2025/04/">四月 2025</a>
+	                    </ul>
+	        </li>
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="关于">
+		                关于
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/archives/" title="归档">
+		                归档
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/your-github-username" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="500px" href="http://500px.com" target="_blank" rel="noopener">
+                            <i class="icon fa fa-500px"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >STL标准模板库详解中容器vector的使用指南</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="STL简介"><a href="#STL简介" class="headerlink" title="STL简介"></a>STL简介</h1><p>STL标准模板库和输入输出库<code>&lt;iostream&gt;</code>、字符串库<code>&lt;string&gt;</code>、数值库（里的数学函数库<code>&lt;cmath&gt;</code>）等这几个我们熟悉的大库一同属于C++标准库，功能相当强大，提供了很多常用的数据结构和算法。</p>
+<p>使用它就不需要按照C++普通算法那样写一大段代码，可以节约我们的编写代码的时间，也可以使我们的代码更简洁，增加可读性。但有一点不足，就是因为是个特别的库，所以他需要存储额外的信息去支持他们的功能，所以在使用他的某些容器的时候，会比普通的数据结构和算法占更多内存。同时由于他的特殊也影响他的通用性，尤其在性能要求非常高的情况下，他的运行速度也是比普通算法要更加慢的，所以我们只能根据经验取舍。</p>
+<p>STL标准模板库主要包含容器(container)、迭代器(iterator)、算法(algorithm)、函数对象(functor)和适配器(adapter)等组成部分，我们最先把握前三种。</p>
+<p>前三者关系：容器用于储存数据，虽然很多容器（如<code>vector</code>、<code>array</code>）支持通过下标（索引）直接访问元素，但在很多情况下，迭代器是访问容器中数据的主要工具；使用算法可以操作容器中的数据但仍然需要迭代器参与，所以，迭代器可以使容器和算法无缝链接。</p>
+<hr>
+<h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><p>容器这个大类用于储存不同类型数据，可分为：</p>
+<ol>
+<li><strong>序列容器</strong>：<code>vector</code>, <code>list</code>, <code>deque</code>, <code>array</code>, <code>forward_list</code></li>
+<li><strong>关联容器</strong>：<code>set</code>, <code>map</code>, <code>multiset</code>, <code>multimap</code></li>
+<li><strong>无序关联容器</strong>：<code>unordered_set</code>, <code>unordered_map</code>, <code>unordered_multiset</code>, <code>unordered_multimap</code></li>
+<li><strong>容器适配器</strong>：<code>stack</code>, <code>queue</code>, <code>priority_queue</code></li>
+</ol>
+<p>以下将拆分为几个博客内容详细讲解每个容器用法并强调出常用容器。</p>
+<hr>
+<h2 id="vector类"><a href="#vector类" class="headerlink" title="vector类"></a>vector类</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><code>vector</code>类是封装了一个能够动态改变大小的数组的动态数组容器，是一种<strong>顺序容器</strong>，支持动态内存分配，其元素在内存中是<strong>连续存储</strong>的。这就意味着它可以像普通数组一样使用索引（下标）来快速访问元素，而且能够自动管理内存，根据元素的增减来调整内存的大小。<code>vector</code>就像一个聪明的租房者，当它发现现有空间不够住时，就会找一个更大的房子，把原来的东西都搬过去，这样就不用每次都只租一点点空间啦，省去了频繁搬家的麻烦，这就是他的内存管理机制，且通常以当前容量的2倍（或1.5倍，取决于实现）进行扩容，这保证了<strong>均摊时间复杂度为O(1)</strong>。</p>
+<blockquote>
+<p><strong>补充说明：</strong></p>
+<ol>
+<li><strong>顺序容器</strong>：顺序容器是一种容器类别，它存储元素的顺序是由元素添加的顺序或者用户指定的顺序决定的。它允许用户通过元素在容器中的位置来进行访问、插入和删除等操作。在STL中的顺序容器有<code>vector</code>（连续存储）、<code>list</code>（非连续存储）、<code>deque</code>（介于连续和非连续之间）、<code>forward_list</code>（C++11及以后）。</li>
+<li><strong>连续存储</strong>：数据元素之间没有内存间隔，一个一个相邻挨着排列，而不是东存一个西存一个。</li>
+<li><strong>均摊时间复杂度为O(1)</strong>：<code>O()</code>是计算机中用来衡量算法速度的”计量单位”，像”公里&#x2F;小时”衡量车速一样，当复杂度是O(1)时，算法的执行时间与数据量无关，每次执行的时间都一样，<code>O(n)</code>是算法的执行时间与数据量成正比，<code>O(n²)</code>是算法的执行时间与数据量成平方比。<ul>
+<li>例如，当数据量×10且复杂度是O(1)，时间不变；复杂度是O(n)，时间也要×10；复杂度是O(n²)，时间×100。所以虽然<code>vector</code>偶尔要花时间扩容，但因为扩容频率指数级降低，长期来看每次插入的平均时间仍然是”瞬间完成”（O(1)）。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><p>当需要一个大小可变的数组，并且<strong>频繁在尾部</strong>进行插入和删除操作时，<code>vector</code>类是一个很好的选择。为什么只说尾部？因为在数组中间插入或删除元素时效率较低，需要移动后面的元素。</p>
+<hr>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h4 id="包含头文件"><a href="#包含头文件" class="headerlink" title="包含头文件"></a>包含头文件</h4><p>使用 vector类，需要包含头文件<code>&lt;vector&gt;</code>。即使用<code>#include&lt;vector&gt;</code>  </p>
+<h4 id="创建-vector类"><a href="#创建-vector类" class="headerlink" title="创建 vector类"></a>创建 vector类</h4><p>（在引用头文件后加上<code>using namespace std;</code>就不用每个vector前都加<code>std::</code>啦)<br>多个相同的值：<code>std::vector&lt;数组里的数据类型&gt; 数组名字（数量，值）；</code><br>不同值：<code>std::vector&lt;数组里的数据类型&gt; 数组名字 = &#123;值，值，值，值&#125;;</code>  </p>
+<h4 id="对数组进行操作"><a href="#对数组进行操作" class="headerlink" title="对数组进行操作"></a>对数组进行操作</h4><ul>
+<li><h5 id="访问元素"><a href="#访问元素" class="headerlink" title="访问元素"></a>访问元素</h5><ul>
+<li>通过下标操作符 <code>[ ]</code> ：<code>数组名[索引]</code><br>例如，<code>vec[0]</code> 可以访问 vector 中第一个元素。需要注意的是，如果下标越界，不会抛出异常，可能会导致未定义行为。  </li>
+<li>通过 <code>at()</code> 函数 ：<code>数组名.at(索引)</code><br>与下标操作符类似，但 <code>at()</code> 会对下标进行边界检查，如果越界会抛出<code>std::out_of_range</code>异常。<br>例如，<code>vec.at(0)</code> 安全地访问第一个元素。</li>
+</ul>
+</li>
+<li><p><strong>添加元素</strong>  </p>
+<ul>
+<li>插入单个元素：  <ul>
+<li><code>push_back</code> ：在 vector 尾部添加一个元素。<br>格式：<code>数组名字.push_back(值);</code><br>例如，<code>vec.push_back(20)</code>；向 vector 添加元素 20。当元素数量超过当前容量时，vector 会自动分配更大的内存空间，并将原元素和新元素拷贝到新的内存位置。  </li>
+<li><code>insert</code>：可以插入元素到 vector 的指定位置。<br>格式：<code>数组名字.insert(索引的位置, 值);</code><br>例如，<code>vec.insert(vec.begin() + 1, 30)</code>；在 vector 的索引位置 1 处插入元素 30。插入操作可能会导致内存重新分配，并且在插入位置之后的元素会被向后移动。<br>（ps: 索引的位置：<code>vec.begin()</code> 是 vector 类的一个成员函数，它的作用是返回一个迭代器，指向向量的第一个元素。用通俗的话说，<code>begin()</code> 返回一个“指针”，指向向量的起始位置。<code>vec.end()</code> 是 <code>std::vector</code> 类的另一个成员函数，它的作用是返回一个迭代器，指向向量末尾的“下一个”位置。注意，<code>end()</code> 返回的迭代器并不指向一个有效的元素，而是指向“超出末尾”的位置。这个位置用于表示遍历结束的条件。索引位置本质是个迭代器，通过这个迭代器我们才能访问这个类中的元素。）</li>
+</ul>
+</li>
+<li>插入多个元素：  <ul>
+<li>多次引用<code>push_back</code>；  </li>
+<li><code>Insert</code>：<br>格式：<code>数组名字.insert(索引的位置, &#123;值，值，值，值&#125;)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>删除元素</strong>  </p>
+<ul>
+<li><code>pop_back()</code> ：删除 vector 尾部的元素。<br>例如，<code>vec.pop_back()</code>；删除最后一个元素。  </li>
+<li><code>erase()</code> ：可以删除指定位置的元素或者一个范围内的元素。<br>例如，<code>vec.erase(vec.begin() + 2)</code>；删除索引位置 2 的元素；<code>vec.erase(vec.begin() + 1, vec.begin() + 3)</code>；删除索引位置 1 到 2 的元素。删除操作后，后面的元素会向前移动。<br>（ps:之后的格式基本都是类名.成员函数名（））</li>
+</ul>
+</li>
+<li><p><strong>获取 vector 的大小和容量</strong>  </p>
+<ul>
+<li><code>size()</code> ：返回 vector 中元素的个数。<br>例如，<code>vec.size()</code> 返回当前 vector 包含的元素数量。  </li>
+<li><code>capacity()</code> ：返回 vector 当前分配的内存量（以元素个数为单位），这个容量可能大于等于 size。<br>例如，<code>vec.capacity()</code> 返回 vector 的容量。  </li>
+<li><code>empty()</code> ：判断 vector 是否为空。如果为空返回 true，否则返回 false。<br><code>if (vec.empty()) &#123; &#125;</code>是一个常见的用法。</li>
+</ul>
+</li>
+<li><p><strong>遍历 vector</strong>  </p>
+<ul>
+<li>使用 for 循环和下标 ：    <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">for</span>(<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; vec.<span class="built_in">size</span>(); ++i) &#123;  </span><br><span class="line">     std::cout &lt;&lt; vec[i] &lt;&lt; <span class="string">&quot; &quot;</span>;  </span><br><span class="line"> &#125;  </span><br><span class="line"> ```  </span><br><span class="line"> 解释：`<span class="type">size_t</span>`是无符号整型变量的关键字，之所以用`<span class="type">size_t</span>`一方面是因为`i`本身是大于等于<span class="number">0</span>的其二是因为`<span class="type">size_t</span>`的范围比`<span class="type">int</span>`表示的范围更大，会更安全，不会溢出。</span><br><span class="line"> vec.<span class="built_in">size</span>()就是使用vector的成员函数size函数返回这个数组里的元素个数。</span><br><span class="line">- 使用迭代器 ：</span><br><span class="line">    ```<span class="function">cpp </span></span><br><span class="line"><span class="function">    <span class="title">for</span><span class="params">(std::vector&lt;<span class="type">int</span>&gt;::iterator it = vec.begin(); it != vec.end(); ++it)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+ 解释：std::vector<int>::iterator是指出it的类型是一个迭代器，固定搭配。</li>
+</ul>
+</li>
+</ul>
+<p>std::vector<int>::iterator it &#x3D; vec.begin()在给it进行初始化，给它赋上索引为0，即第一个元素的迭代器，end()返回指向 vector 超出末尾元素的迭代器。*it解引用出它对应的内容，迭代器可以像指针一样进行递增和解引用操作。<br>或者<br>      <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vec.<span class="built_in">begin</span>(); it != vec.<span class="built_in">end</span>(); ++it) &#123;</span><br><span class="line">std::cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;&#125;</span><br></pre></td></tr></table></figure><br>      解释：为了简便，std::vector<int>::iterator这个类型表示可以直接用auto替代，自动识别它的迭代器身份。</p>
+<ul>
+<li>使用范围 for 循环（C++11 及以后） ： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span>&amp; elem : vec) &#123;</span><br><span class="line"> std::cout &lt;&lt; elem &lt;&lt; <span class="string">&quot; &quot;</span>;&#125;</span><br></pre></td></tr></table></figure>
+解释：auto：让编译器自动推断 elem 的类型。&amp;：声明 elem 是一个引用变量。elem：引用容器中当前迭代的元素。这种方式简洁高效，自动遍历 vector 中的每个元素。</li>
+</ul>
+<hr>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li><h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4></li>
+</ul>
+<p>vector 的内存分配是动态的，但不是频繁地每次添加元素都重新分配内存。它会预先分配一块比当前需要更大的内存空间，当空间不足时，再分配一块更大的内存（通常是原容量的两倍左右），并将原元素拷贝到新的内存位置。这种策略减少了内存分配和拷贝的次数，提高了效率。不过，这也可能会导致内存占用比实际需要多一些。</p>
+<ul>
+<li><h4 id="迭代器失效问题"><a href="#迭代器失效问题" class="headerlink" title="迭代器失效问题"></a>迭代器失效问题</h4></li>
+</ul>
+<p>当对 vector 进行某些操作（如插入、删除元素导致内存重新分配）时，原有的迭代器、指针和引用可能会失效。例如，如果在 vector 中插入一个元素导致内存重新分配，之前保存的指向 vector 元素的迭代器就不再有效，再次使用可能会导致错误。所以在操作 vector 时，要注意避免迭代器失效问题。</p>
+<ul>
+<li><h4 id="性能考虑"><a href="#性能考虑" class="headerlink" title="性能考虑"></a>性能考虑</h4></li>
+</ul>
+<p>在 vector 尾部添加和删除元素（使用push_back()和pop_back()）是非常高效的，时间复杂度为 O(1)，因为不需要移动其他元素。但如果在 vector 的中间位置插入或删除元素，时间复杂度为 O(n)，因为需要移动后面的元素。所以，如果需要频繁在中间位置操作元素，可能需要考虑其他更合适的容器，如列表（std::list）等。</p>
+<hr>
+<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>以上就是 STL 标准模板库的序篇内容啦，我们初步领略了 STL 的强大之处，以及对 vector 容器进行了较为详细的探索。这只是 STL 浩瀚知识海洋的小小开端，后续我将推出一系列博客，分别深入剖析 STL 中的其他容器，如 list、deque、set、map 等，每个容器都有其独特的特性和适用场景，就像一把把不同的钥匙，分别对应着各种复杂多变的编程问题。同时，算法部分的精彩内容也将陆续登场，它们如同神奇的魔杖，能在容器这片舞台上施展出各种强大的操作魔法。敬请期待后续更新，让我们一同在 STL 的知识世界里不断探索前行，挖掘出更多编程的宝藏，提升我们的代码质量和开发效率，开启 C++ 编程的精彩篇章！<br><strong>特此致谢Gskyer对作者网站搭建和第一篇个人技术博客编写的指导</strong><br><strong>Я люблю тебя</strong></p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'your-disqus-shortname'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://localhost:4000/2025/05/13/STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93%E8%AF%A6%E8%A7%A3%E4%B8%AD%E5%AE%B9%E5%99%A8vector%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://localhost:4000/2025/05/13/STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93%E8%AF%A6%E8%A7%A3%E4%B8%AD%E5%AE%B9%E5%99%A8vector%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//your-disqus-shortname.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
