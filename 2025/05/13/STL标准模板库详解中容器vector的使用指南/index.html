@@ -153,7 +153,7 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://i.ytimg.com/vi/agsrr_tvmm4/maxresdefault.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
                 <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >STL标准模板库详解中容器vector的使用指南</h2></a>
             </div>
             <!-- Post -->
@@ -188,64 +188,78 @@
 <h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><p>当需要一个大小可变的数组，并且<strong>频繁在尾部</strong>进行插入和删除操作时，<code>vector</code>类是一个很好的选择。为什么只说尾部？因为在数组中间插入或删除元素时效率较低，需要移动后面的元素。</p>
 <hr>
 <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h4 id="包含头文件"><a href="#包含头文件" class="headerlink" title="包含头文件"></a>包含头文件</h4><p>使用 vector类，需要包含头文件<code>&lt;vector&gt;</code>。即使用<code>#include&lt;vector&gt;</code>  </p>
-<h4 id="创建-vector类"><a href="#创建-vector类" class="headerlink" title="创建 vector类"></a>创建 vector类</h4><p>（在引用头文件后加上<code>using namespace std;</code>就不用每个vector前都加<code>std::</code>啦)<br>多个相同的值：<code>std::vector&lt;数组里的数据类型&gt; 数组名字（数量，值）；</code><br>不同值：<code>std::vector&lt;数组里的数据类型&gt; 数组名字 = &#123;值，值，值，值&#125;;</code>  </p>
-<h4 id="对数组进行操作"><a href="#对数组进行操作" class="headerlink" title="对数组进行操作"></a>对数组进行操作</h4><ul>
-<li><h5 id="访问元素"><a href="#访问元素" class="headerlink" title="访问元素"></a>访问元素</h5><ul>
-<li><strong>通过下标操作符<code>[ ]</code></strong>：<code>数组名[索引]</code><br>例如，<code>vec[0]</code> 可以访问 vector 中第一个元素。需要注意的是，如果下标越界，不会抛出异常，可能会导致未定义行为。  </li>
-<li><strong>通过 <code>at()</code> 函数</strong> ：<code>数组名.at(索引)</code><br>与下标操作符类似，但 <code>at()</code> 会对下标进行边界检查，如果越界会抛出<code>std::out_of_range</code>异常。<br>例如，<code>vec.at(0)</code> 安全地访问第一个元素。</li>
-</ul>
+<h4 id="创建-vector类"><a href="#创建-vector类" class="headerlink" title="创建 vector类"></a>创建 vector类</h4><p>（在引用头文件后加上<code>using namespace std;</code>就不用每个vector前都加<code>std::</code>啦)  </p>
+<p>多个相同的值：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;数组里的数据类型&gt; 数组名字（数量，值）；</span><br></pre></td></tr></table></figure>
+
+<p>不同值：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;数组里的数据类型&gt; 数组名字 = &#123;值，值，值，值&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="对数组进行操作"><a href="#对数组进行操作" class="headerlink" title="对数组进行操作"></a>对数组进行操作</h4><h5 id="访问元素"><a href="#访问元素" class="headerlink" title="访问元素"></a>访问元素</h5><ul>
+<li><p><strong>通过下标操作符<code>[ ]</code></strong>：<code>数组名[索引]</code><br>例如，<code>vec[0]</code> 可以访问 vector 中第一个元素。需要注意的是，如果下标越界，不会抛出异常，可能会导致未定义行为。  </p>
 </li>
-<li><h5 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h5><ul>
-<li><h6 id="插入单个元素："><a href="#插入单个元素：" class="headerlink" title="插入单个元素："></a>插入单个元素：</h6><ul>
-<li><strong><code>push_back</code></strong>：在 vector 尾部添加一个元素。<br>格式：<code>数组名字.push_back(值);</code><br>例如，<code>vec.push_back(20)</code>；向 vector 添加元素 20。当元素数量超过当前容量时，vector 会自动分配更大的内存空间，并将原元素和新元素拷贝到新的内存位置。  </li>
-<li><strong><code>insert</code></strong>：可以插入元素到 vector 的指定位置。<br>格式：<code>数组名字.insert(索引的位置, 值);</code><br>例如，<code>vec.insert(vec.begin() + 1, 30)</code>；在 vector 的索引位置 1 处插入元素 30。插入操作可能会导致内存重新分配，并且在插入位置之后的元素会被向后移动。<br>（ps: 索引的位置：<code>vec.begin()</code> 是 vector 类的一个成员函数，它的作用是返回一个迭代器，指向向量的第一个元素。用通俗的话说，<code>begin()</code> 返回一个“指针”，指向向量的起始位置。<code>vec.end()</code> 是 <code>std::vector</code> 类的另一个成员函数，它的作用是返回一个迭代器，指向向量末尾的“下一个”位置。注意，<code>end()</code> 返回的迭代器并不指向一个有效的元素，而是指向“超出末尾”的位置。这个位置用于表示遍历结束的条件。索引位置本质是个迭代器，通过这个迭代器我们才能访问这个类中的元素。）</li>
-</ul>
+<li><p><strong>通过 <code>at()</code> 函数</strong> ：<code>数组名.at(索引)</code><br>与下标操作符类似，但 <code>at()</code> 会对下标进行边界检查，如果越界会抛出<code>std::out_of_range</code>异常。<br>例如，<code>vec.at(0)</code> 安全地访问第一个元素。</p>
 </li>
-<li><h6 id="插入多个元素："><a href="#插入多个元素：" class="headerlink" title="插入多个元素："></a>插入多个元素：</h6><ul>
+</ul>
+<h5 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h5><h6 id="插入单个元素："><a href="#插入单个元素：" class="headerlink" title="插入单个元素："></a>插入单个元素：</h6><ul>
+<li><p><strong><code>push_back</code></strong>：在 vector 尾部添加一个元素。<br>格式：<code>数组名字.push_back(值);</code><br>例如，<code>vec.push_back(20)</code>；向 vector 添加元素 20。当元素数量超过当前容量时，vector 会自动分配更大的内存空间，并将原元素和新元素拷贝到新的内存位置。  </p>
+</li>
+<li><p><strong><code>insert</code></strong>：可以插入元素到 vector 的指定位置。<br>格式：<code>数组名字.insert(索引的位置, 值);</code><br>例如，<code>vec.insert(vec.begin() + 1, 30)</code>；在 vector 的索引位置 1 处插入元素 30。插入操作可能会导致内存重新分配，并且在插入位置之后的元素会被向后移动。  </p>
+<blockquote>
+<p><strong>注意</strong>：索引的位置：<code>vec.begin()</code> 是 vector 类的一个成员函数，它的作用是返回一个迭代器，指向向量的第一个元素。用通俗的话说，<code>begin()</code> 返回一个”指针”，指向向量的起始位置。<code>vec.end()</code> 是 <code>std::vector</code> 类的另一个成员函数，它的作用是返回一个迭代器，指向向量末尾的”下一个”位置。注意，<code>end()</code> 返回的迭代器并不指向一个有效的元素，而是指向”超出末尾”的位置。这个位置用于表示遍历结束的条件。索引位置本质是个迭代器，通过这个迭代器我们才能访问这个类中的元素。</p>
+</blockquote>
+</li>
+</ul>
+<h6 id="插入多个元素："><a href="#插入多个元素：" class="headerlink" title="插入多个元素："></a>插入多个元素：</h6><ul>
 <li><strong>多次引用<code>push_back</code></strong>；  </li>
 <li><strong><code>Insert</code></strong>：<br>格式：<code>数组名字.insert(索引的位置, &#123;值，值，值，值&#125;)</code></li>
 </ul>
+<h5 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h5><ul>
+<li><p><strong><code>pop_back()</code></strong> ：删除 vector 尾部的元素。<br>例如，<code>vec.pop_back()</code>；删除最后一个元素。  </p>
+</li>
+<li><p><strong><code>erase()</code></strong> ：可以删除指定位置的元素或者一个范围内的元素。<br>例如，<code>vec.erase(vec.begin() + 2)</code>；删除索引位置 2 的元素；<code>vec.erase(vec.begin() + 1, vec.begin() + 3)</code>；删除索引位置 1 到 2 的元素。删除操作后，后面的元素会向前移动。</p>
 </li>
 </ul>
+<h5 id="获取-vector-的大小和容量"><a href="#获取-vector-的大小和容量" class="headerlink" title="获取 vector 的大小和容量"></a>获取 vector 的大小和容量</h5><ul>
+<li><p><strong><code>size()</code></strong> ：返回 vector 中元素的个数。<br>例如，<code>vec.size()</code> 返回当前 vector 包含的元素数量。  </p>
 </li>
-<li><h6 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h6><ul>
-<li><strong><code>pop_back()</code></strong> ：删除 vector 尾部的元素。<br>例如，<code>vec.pop_back()</code>；删除最后一个元素。  </li>
-<li><strong><code>erase()</code></strong> ：可以删除指定位置的元素或者一个范围内的元素。<br>例如，<code>vec.erase(vec.begin() + 2)</code>；删除索引位置 2 的元素；<code>vec.erase(vec.begin() + 1, vec.begin() + 3)</code>；删除索引位置 1 到 2 的元素。删除操作后，后面的元素会向前移动。<br>（ps:之后的格式基本都是类名.成员函数名（））</li>
-</ul>
+<li><p><strong><code>capacity()</code></strong> ：返回 vector 当前分配的内存量（以元素个数为单位），这个容量可能大于等于 size。<br>例如，<code>vec.capacity()</code> 返回 vector 的容量。  </p>
 </li>
-<li><h6 id="获取-vector-的大小和容量"><a href="#获取-vector-的大小和容量" class="headerlink" title="获取 vector 的大小和容量"></a>获取 vector 的大小和容量</h6><ul>
-<li><strong><code>size()</code></strong> ：返回 vector 中元素的个数。<br>例如，<code>vec.size()</code> 返回当前 vector 包含的元素数量。  </li>
-<li><strong><code>capacity()</code></strong> ：返回 vector 当前分配的内存量（以元素个数为单位），这个容量可能大于等于 size。<br>例如，<code>vec.capacity()</code> 返回 vector 的容量。  </li>
-<li><strong><code>empty()</code></strong> ：判断 vector 是否为空。如果为空返回 true，否则返回 false。<br><code>if (vec.empty()) &#123; &#125;</code>是一个常见的用法。</li>
-</ul>
-</li>
-<li><h6 id="遍历-vector"><a href="#遍历-vector" class="headerlink" title="遍历 vector"></a>遍历 vector</h6><ul>
-<li><strong>使用 for 循环和下标</strong> ：    <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">for</span>(<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; vec.<span class="built_in">size</span>(); ++i) &#123;  </span><br><span class="line">     std::cout &lt;&lt; vec[i] &lt;&lt; <span class="string">&quot; &quot;</span>;  </span><br><span class="line"> &#125;  </span><br><span class="line"> ```  </span><br><span class="line"> 解释：`<span class="type">size_t</span>`是无符号整型变量的关键字，之所以用`<span class="type">size_t</span>`一方面是因为`i`本身是大于等于<span class="number">0</span>的其二是因为`<span class="type">size_t</span>`的范围比`<span class="type">int</span>`表示的范围更大，会更安全，不会溢出。</span><br><span class="line"> vec.<span class="built_in">size</span>()就是使用vector的成员函数size函数返回这个数组里的元素个数。</span><br><span class="line">- **使用迭代器** ：</span><br><span class="line">    ```<span class="function">cpp </span></span><br><span class="line"><span class="function">    <span class="title">for</span><span class="params">(std::vector&lt;<span class="type">int</span>&gt;::iterator it = vec.begin(); it != vec.end(); ++it)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;&#125;</span><br></pre></td></tr></table></figure>
-
- 解释：std::vector<int>::iterator是指出it的类型是一个迭代器，固定搭配。</li>
-</ul>
+<li><p><strong><code>empty()</code></strong> ：判断 vector 是否为空。如果为空返回 true，否则返回 false。<br><code>if (vec.empty()) &#123; &#125;</code>是一个常见的用法。</p>
 </li>
 </ul>
-<p>std::vector<int>::iterator it &#x3D; vec.begin()在给it进行初始化，给它赋上索引为0，即第一个元素的迭代器，end()返回指向 vector 超出末尾元素的迭代器。*it解引用出它对应的内容，迭代器可以像指针一样进行递增和解引用操作。<br>或者<br>      <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vec.<span class="built_in">begin</span>(); it != vec.<span class="built_in">end</span>(); ++it) &#123;</span><br><span class="line">std::cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;&#125;</span><br></pre></td></tr></table></figure><br>      解释：为了简便，std::vector<int>::iterator这个类型表示可以直接用auto替代，自动识别它的迭代器身份。</p>
+<h5 id="遍历-vector"><a href="#遍历-vector" class="headerlink" title="遍历 vector"></a>遍历 vector</h5><ul>
+<li><strong>使用 for 循环和下标</strong>：    <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; vec.<span class="built_in">size</span>(); ++i) &#123;  </span><br><span class="line">    std::cout &lt;&lt; vec[i] &lt;&lt; <span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p><strong>解释</strong>：<code>size_t</code>是无符号整型变量的关键字，之所以用<code>size_t</code>一方面是因为<code>i</code>本身是大于等于0的其二是因为<code>size_t</code>的范围比<code>int</code>表示的范围更大，会更安全，不会溢出。<br><code>vec.size()</code>就是使用vector的成员函数size函数返回这个数组里的元素个数。</p>
+</blockquote>
 <ul>
-<li><strong>使用范围 for 循环（C++11 及以后）</strong> ： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span>&amp; elem : vec) &#123;</span><br><span class="line"> std::cout &lt;&lt; elem &lt;&lt; <span class="string">&quot; &quot;</span>;&#125;</span><br></pre></td></tr></table></figure>
-解释：auto：让编译器自动推断 elem 的类型。&amp;：声明 elem 是一个引用变量。elem：引用容器中当前迭代的元素。这种方式简洁高效，自动遍历 vector 中的每个元素。</li>
+<li><strong>使用迭代器</strong>：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(std::vector&lt;<span class="type">int</span>&gt;::iterator it = vec.<span class="built_in">begin</span>(); it != vec.<span class="built_in">end</span>(); ++it) &#123;</span><br><span class="line">    std::cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
+<blockquote>
+<p><strong>解释</strong>：<code>std::vector&lt;int&gt;::iterator</code>是指出it的类型是一个迭代器，固定搭配。<br><code>std::vector&lt;int&gt;::iterator it = vec.begin()</code>在给it进行初始化，给它赋上索引为0，即第一个元素的迭代器，end()返回指向 vector 超出末尾元素的迭代器。<code>*it</code>解引用出它对应的内容，迭代器可以像指针一样进行递增和解引用操作。</p>
+</blockquote>
+<ul>
+<li><p>或者使用auto简化：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vec.<span class="built_in">begin</span>(); it != vec.<span class="built_in">end</span>(); ++it) &#123;</span><br><span class="line">    std::cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p><strong>解释</strong>：为了简便，std::vector<int>::iterator这个类型表示可以直接用auto替代，自动识别它的迭代器身份。</p>
+</blockquote>
+<ul>
+<li><strong>使用范围 for 循环（C++11 及以后）</strong>：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span>&amp; elem : vec) &#123;</span><br><span class="line">    std::cout &lt;&lt; elem &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p><strong>解释</strong>：auto：让编译器自动推断 elem 的类型。&amp;：声明 elem 是一个引用变量。elem：引用容器中当前迭代的元素。这种方式简洁高效，自动遍历 vector 中的每个元素。</p>
+</blockquote>
 <hr>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
-<li><h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4></li>
-</ul>
-<p>vector 的内存分配是动态的，但不是频繁地每次添加元素都重新分配内存。它会预先分配一块比当前需要更大的内存空间，当空间不足时，再分配一块更大的内存（通常是原容量的两倍左右），并将原元素拷贝到新的内存位置。这种策略减少了内存分配和拷贝的次数，提高了效率。不过，这也可能会导致内存占用比实际需要多一些。</p>
-<ul>
-<li><h4 id="迭代器失效问题"><a href="#迭代器失效问题" class="headerlink" title="迭代器失效问题"></a>迭代器失效问题</h4></li>
-</ul>
-<p>当对 vector 进行某些操作（如插入、删除元素导致内存重新分配）时，原有的迭代器、指针和引用可能会失效。例如，如果在 vector 中插入一个元素导致内存重新分配，之前保存的指向 vector 元素的迭代器就不再有效，再次使用可能会导致错误。所以在操作 vector 时，要注意避免迭代器失效问题。</p>
-<ul>
-<li><h4 id="性能考虑"><a href="#性能考虑" class="headerlink" title="性能考虑"></a>性能考虑</h4></li>
-</ul>
-<p>在 vector 尾部添加和删除元素（使用push_back()和pop_back()）是非常高效的，时间复杂度为 O(1)，因为不需要移动其他元素。但如果在 vector 的中间位置插入或删除元素，时间复杂度为 O(n)，因为需要移动后面的元素。所以，如果需要频繁在中间位置操作元素，可能需要考虑其他更合适的容器，如列表（std::list）等。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4><p>vector 的内存分配是动态的，但不是频繁地每次添加元素都重新分配内存。它会预先分配一块比当前需要更大的内存空间，当空间不足时，再分配一块更大的内存（通常是原容量的两倍左右），并将原元素拷贝到新的内存位置。这种策略减少了内存分配和拷贝的次数，提高了效率。不过，这也可能会导致内存占用比实际需要多一些。</p>
+<h4 id="迭代器失效问题"><a href="#迭代器失效问题" class="headerlink" title="迭代器失效问题"></a>迭代器失效问题</h4><p>当对 vector 进行某些操作（如插入、删除元素导致内存重新分配）时，原有的迭代器、指针和引用可能会失效。例如，如果在 vector 中插入一个元素导致内存重新分配，之前保存的指向 vector 元素的迭代器就不再有效，再次使用可能会导致错误。所以在操作 vector 时，要注意避免迭代器失效问题。</p>
+<h4 id="性能考虑"><a href="#性能考虑" class="headerlink" title="性能考虑"></a>性能考虑</h4><p>在 vector 尾部添加和删除元素（使用push_back()和pop_back()）是非常高效的，时间复杂度为 O(1)，因为不需要移动其他元素。但如果在 vector 的中间位置插入或删除元素，时间复杂度为 O(n)，因为需要移动后面的元素。所以，如果需要频繁在中间位置操作元素，可能需要考虑其他更合适的容器，如列表（std::list）等。</p>
 <hr>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>以上就是 STL 标准模板库的序篇内容啦，我们初步领略了 STL 的强大之处，以及对 vector 容器进行了较为详细的探索。这只是 STL 浩瀚知识海洋的小小开端，后续我将推出一系列博客，分别深入剖析 STL 中的其他容器，如 list、deque、set、map 等，每个容器都有其独特的特性和适用场景，就像一把把不同的钥匙，分别对应着各种复杂多变的编程问题。同时，算法部分的精彩内容也将陆续登场，它们如同神奇的魔杖，能在容器这片舞台上施展出各种强大的操作魔法。敬请期待后续更新，让我们一同在 STL 的知识世界里不断探索前行，挖掘出更多编程的宝藏，提升我们的代码质量和开发效率，开启 C++ 编程的精彩篇章！<br><strong>特此致谢Gskyer对作者网站搭建和第一篇个人技术博客编写的指导</strong><br><strong>Я люблю тебя</strong></p>
+<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>以上就是 STL 标准模板库的序篇内容啦，我们初步领略了 STL 的强大之处，以及对 vector 容器进行了较为详细的探索。这只是 STL 浩瀚知识海洋的小小开端，后续我将推出一系列博客，分别深入剖析 STL 中的其他容器，如 list、deque、set、map 等，每个容器都有其独特的特性和适用场景，就像一把把不同的钥匙，分别对应着各种复杂多变的编程问题。同时，算法部分的精彩内容也将陆续登场，它们如同神奇的魔杖，能在容器这片舞台上施展出各种强大的操作魔法。敬请期待后续更新，让我们一同在 STL 的知识世界里不断探索前行，挖掘出更多编程的宝藏，提升我们的代码质量和开发效率，开启 C++ 编程的精彩篇章！</p>
+<p><strong>特此致谢Gskyer对作者网站搭建和第一篇个人技术博客编写的指导</strong></p>
 
             </div>
 
