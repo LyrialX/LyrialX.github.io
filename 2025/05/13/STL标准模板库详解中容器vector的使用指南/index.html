@@ -260,19 +260,22 @@
 <hr>
 <h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>以上就是 STL 标准模板库的序篇内容啦，我们初步领略了 STL 的强大之处，以及对 vector 容器进行了较为详细的探索。这只是 STL 浩瀚知识海洋的小小开端，后续我将推出一系列博客，分别深入剖析 STL 中的其他容器，如 list、deque、set、map 等，每个容器都有其独特的特性和适用场景，就像一把把不同的钥匙，分别对应着各种复杂多变的编程问题。同时，算法部分的精彩内容也将陆续登场，它们如同神奇的魔杖，能在容器这片舞台上施展出各种强大的操作魔法。敬请期待后续更新，让我们一同在 STL 的知识世界里不断探索前行，挖掘出更多编程的宝藏，提升我们的代码质量和开发效率，开启 C++ 编程的精彩篇章！</p>
 <p><strong>特此致谢Gskyer对作者网站搭建和第一篇个人技术博客编写的指导</strong></p>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <div id="gitalk-container"></div>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script>
   const gitalk = new Gitalk({
     clientID: 'Ov23liROZ2lxiwsMMDgh',
-    clientSecret: 'e7f4e39f88c22cb26f7bc573783a7cc47b564a2d',
+    clientSecret: 'e7f4e39f88c22cb26f7bc573783a7cc47b564a2d', 
     repo: 'blog-comments',
     owner: 'LyrialX',
     admin: ['LyrialX'],
-    id: window.location.pathname,
+    id: md5(location.pathname).substr(0, 10),
+    labels: ['Gitalk-comments'],
+    createIssueManually: true,
     distractionFreeMode: false
-  });
-  gitalk.render('gitalk-container');
+  })
+  gitalk.render('gitalk-container')
 </script>
             </div>
 
